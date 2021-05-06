@@ -1,0 +1,79 @@
+{
+  "name": "kod-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "craco start",
+    "serve": "serve -s build",
+    "build": "craco build",
+    "build:ssr": "node src/ssr/index.js",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "test": "craco test",
+    "eslint": "eslint src",
+    "prettier": "prettier --write ."
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "i18next": "^19.8.7",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.8.6",
+    "react-monaco-editor": "^0.43.0",
+    "react-router-dom": "^5.2.0",
+    "recoil": "^0.1.2",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.12.13",
+    "@craco/craco": "^6.1.1",
+    "@storybook/addon-actions": "^6.1.18",
+    "@storybook/addon-essentials": "^6.1.18",
+    "@storybook/addon-links": "^6.1.18",
+    "@storybook/node-logger": "^6.1.18",
+    "@storybook/preset-create-react-app": "^3.1.6",
+    "@storybook/react": "^6.1.18",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "@types/node": "^14.14.28",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.7",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "craco-alias": "^2.1.1",
+    "craco-esbuild": "^0.2.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "flow-bin": "^0.144.0",
+    "monaco-editor-webpack-plugin": "^3.0.1",
+    "prettier": "^2.2.1",
+    "react-scripts": "4.0.2",
+    "sass": "^1.32.7",
+    "serve": "^11.3.2",
+    "typescript": "^4.1.5",
+    "web-vitals": "^1.1.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  }
+}

@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Button from "@/components/Button";
+import { action } from "@storybook/addon-actions";
+
+export const Template = (args) => (
+  <Button onClick={action("onClick")} {...args} />
+);
+
+<Meta
+  title="Components/Button"
+  decorators={[]}
+  parameters={[]}
+  component={Button}
+  argTypes={{
+    isEmpty: {
+      description: "it is empty",
+      control: "boolean",
+      table: {
+        category: "Empty",
+      },
+    },
+    text: {
+      description: "it is text",
+      control: "text",
+      table: {
+        category: "Text",
+      },
+    },
+  }}
+/>
+
+# Button
+
+Let's define a default story for our `Button` component:
+
+<Story name="default">{Template.bind({})}</Story>
+
+<br />
+
+### We can drop it in a 'Canvas' to get a code snippet:
+
+<Canvas>
+  <Story
+    name="WithProps"
+    decorators={[]}
+    parameters={[]}
+    args={{
+      text: "12",
+      isEmpty: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="WithProps" />
