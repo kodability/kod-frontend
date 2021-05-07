@@ -7,7 +7,9 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import StoreWrapper from "./store";
 
-ReactDOM.hydrate(
+const renderer = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+
+renderer(
   <React.StrictMode>
     <StoreWrapper>
       <BrowserRouter>
