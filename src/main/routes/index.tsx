@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import NotFoundPage from "src/modules/404";
-import ChallengePage from "src/modules/Challenge";
-import LandingPage from "src/modules/Landing";
+import NotFoundPage from "src/pages/404";
+import ChallengeLandingPage from "src/pages/challenge/ChallengeLandingPage";
+import ChallengingPage from "src/pages/challenge/ChallengeTryPage";
+import LandingPage from "src/pages/Landing";
 import ChallengeRoute from "./ChallengeRoute";
 
 const Routes = () => {
@@ -11,14 +12,10 @@ const Routes = () => {
       <Route exact path="/">
         <LandingPage />
       </Route>
-      <ChallengeRoute
-        path="/challenge"
-        validChallenge={false}
-        page={ChallengePage}
-      />
-      <Route exact path="/test">
-        <ChallengePage />
+      <Route path="/challenge">
+        <ChallengeLandingPage />
       </Route>
+      <ChallengeRoute path="/challenge/try" page={ChallengingPage} />
       <Route>
         <NotFoundPage />
       </Route>

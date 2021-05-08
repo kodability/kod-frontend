@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const Title = styled.h2`
@@ -10,11 +11,16 @@ const Title = styled.h2`
 
 const LandingPage = () => {
   const { t } = useTranslation();
+  const history = useHistory();
+
+  const onChallenge = () => {
+    history.push("/challenge?cid=1234");
+  };
 
   return (
     <div>
       <Title>{t("page.index")}</Title>
-      <button>Start</button>
+      <button onClick={onChallenge}>Challenge</button>
     </div>
   );
 };
