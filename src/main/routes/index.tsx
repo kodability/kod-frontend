@@ -16,6 +16,9 @@ const Routes = () => {
         validChallenge={false}
         page={ChallengePage}
       />
+      <Route exact path="/test">
+        <ChallengePage />
+      </Route>
       <Route>
         <NotFoundPage />
       </Route>

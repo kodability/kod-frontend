@@ -6,7 +6,6 @@
     "start": "craco start",
     "serve": "serve -s build",
     "build": "craco build",
-    "build:ssr": "node src/ssr/index.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "test": "craco test",
@@ -33,9 +32,10 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-i18next": "^11.8.6",
+    "react-markdown": "^6.0.2",
     "react-monaco-editor": "^0.43.0",
     "react-router-dom": "^5.2.0",
-    "recoil": "^0.1.2",
+    "recoil": "^0.2.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

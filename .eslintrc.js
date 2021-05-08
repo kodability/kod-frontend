@@ -7,17 +7,23 @@ module.exports = {
   ],
   root: true,
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "react-hooks"],
   rules: {
     "react/prop-types": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        additionalHooks: "useRecoilCallback",
+      },
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
   },
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
       rules: {
-        // Missing return type on function  @typescript-eslint/explicit-module-boundary-types 경고때문에 일단 비활성화
-        // TODO: 위 경고만 제외할 수 있도록 설정 후, warn으로 변경
+        // disable due to `Missing return type on function @typescript-eslint/explicit-module-boundary-types` warning
         "@typescript-eslint/explicit-module-boundary-types": "off",
       },
     },
