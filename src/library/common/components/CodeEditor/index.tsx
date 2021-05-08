@@ -1,8 +1,8 @@
-import * as Monaco from "monaco-editor/esm/vs/editor/editor.api";
-import * as React from "react";
-import ReactResizeObserver from "rc-resize-observer";
-import MonacoEditor from "react-monaco-editor";
 import debounce from "debounce";
+import * as Monaco from "monaco-editor/esm/vs/editor/editor.api";
+import ReactResizeObserver from "rc-resize-observer";
+import React from "react";
+import MonacoEditor from "react-monaco-editor";
 
 interface Props {
   code?: string | null;

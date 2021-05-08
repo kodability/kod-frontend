@@ -1,7 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import CodeEditor from "@/components/CodeEditor";
 
 const Title = styled.h2`
   font-size: 1.5em;
@@ -11,15 +10,11 @@ const Title = styled.h2`
 
 const LandingPage = () => {
   const { t } = useTranslation();
-  const code = `const list: number[] = [1,2,3,4];
-const sum: number = list.reduce((prev, cur) => prev + cur, 0);
-console.log(sum);
-`;
 
   return (
     <div>
       <Title>{t("page.index")}</Title>
-      <CodeEditor language="typescript" code={code} />
+      <button>Start</button>
     </div>
   );
 };

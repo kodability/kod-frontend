@@ -1,21 +1,21 @@
-import * as React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import App from "./App";
 import "./i18n";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import StoreWrapper from "./store";
 
 const renderer = module.hot ? ReactDOM.render : ReactDOM.hydrate;
 
 renderer(
   <React.StrictMode>
-    <StoreWrapper>
+    <RecoilRoot>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StoreWrapper>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
 );

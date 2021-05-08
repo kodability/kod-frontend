@@ -9,9 +9,6 @@ function getCracoPlugins() {
       options: {
         source: "options",
         baseUrl: "./",
-        aliases: {
-          "@": "./src",
-        },
       },
     },
     {

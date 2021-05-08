@@ -1,21 +1,12 @@
-import * as React from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { Suspense } from "react";
 import "./App.scss";
-import LandingPage from "@/pages/LandingPage";
-import NotFoundPage from "./pages/404";
+import Routes from "./main/routes";
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        <Route>
-          <NotFoundPage />
-        </Route>
-      </Switch>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes />
+    </Suspense>
   );
 }
 
