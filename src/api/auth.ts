@@ -6,7 +6,7 @@ export const fetchChallengeState = async (
   cid: string
 ): Promise<ChallengeState | null> => {
   if (!cid) {
-    return null;
+    return { state: "invalid" };
   }
 
   console.log("fetching...");
@@ -36,6 +36,6 @@ export const fetchChallengeState = async (
         state: "expired",
       };
     default:
-      return null;
+      return { state: "invalid" };
   }
 };

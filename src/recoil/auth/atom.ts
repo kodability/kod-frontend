@@ -21,11 +21,16 @@ export interface ChallengeExpired {
   state: "expired";
 }
 
+export interface ChallengeInvalid {
+  state: "invalid";
+}
+
 export type ChallengeState =
   | ChallengeWaiting
   | ChallengeStarted
   | ChallengeFinished
-  | ChallengeExpired;
+  | ChallengeExpired
+  | ChallengeInvalid;
 
 export const challengeStateAtom = atom<ChallengeState | null>({
   key: "ChallengeState",

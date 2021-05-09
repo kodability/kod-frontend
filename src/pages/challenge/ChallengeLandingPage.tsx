@@ -1,8 +1,8 @@
+import { fetchChallengeState } from "@/api/auth";
+import { challengeStateAtom } from "@/recoil/auth/atom";
 import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { fetchChallengeState } from "@/api/auth";
-import { challengeStateAtom } from "@/recoil/auth/atom";
 
 const TRY_URL = "/challenge/try";
 
@@ -14,6 +14,7 @@ const ChallengeLandingPage: React.FC = () => {
   const cid = query.get("cid") || "";
 
   useEffect(() => {
+    setChallengeState(() => null);
     fetchChallengeState(cid).then((challengeState) => {
       setChallengeState((current) => challengeState || current);
     });
@@ -21,26 +22,29 @@ const ChallengeLandingPage: React.FC = () => {
 
   const history = useHistory();
 
-  // redirect to TRY_URL if already started.
-  if (challengeState?.state === "started") {
-    history.push(TRY_URL);
+  console.log(challengeState);
+  if (challengeState == null) {
+    return <div>Loading...</div>;
   }
-
-  const enableStart = challengeState?.state === "waiting";
 
   function onStart() {
     history.push(TRY_URL);
   }
 
-  return (
-    <div>
-      <ul>
-        <li>id: {cid}</li>
-        <li>state: {JSON.stringify(challengeState)}</li>
-      </ul>
-      {enableStart && <button onClick={onStart}>Start</button>}
-    </div>
-  );
+  switch (challengeState.state) {
+    case "started":
+      return <button onClick={onStart}>continue</button>;
+    case "waiting":
+      return <button onClick={onStart}>Start</button>;
+    case "finished":
+      return (
+        <div>finished at {challengeState.finishedAt.toLocaleString()}</div>
+      );
+    case "expired":
+      return <div>expired</div>;
+    case "invalid":
+      return <div>invalid cid</div>;
+  }
 };
 
 export default ChallengeLandingPage;

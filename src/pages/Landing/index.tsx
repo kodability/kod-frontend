@@ -13,14 +13,20 @@ const LandingPage = () => {
   const { t } = useTranslation();
   const history = useHistory();
 
-  const onChallenge = () => {
-    history.push("/challenge?cid=1234");
+  const onChallenge = (cid: string) => {
+    history.push(`/challenge?cid=${cid}`);
   };
 
   return (
     <div>
       <Title>{t("page.index")}</Title>
-      <button onClick={onChallenge}>Challenge</button>
+      <button onClick={() => onChallenge("waiting")}>Challenge waiting</button>
+      <button onClick={() => onChallenge("started")}>Challenge started</button>
+      <button onClick={() => onChallenge("finished")}>
+        Challenge finished
+      </button>
+      <button onClick={() => onChallenge("expired")}>Challenge expired</button>
+      <button onClick={() => onChallenge("1234")}>Challenge invalid</button>
     </div>
   );
 };
