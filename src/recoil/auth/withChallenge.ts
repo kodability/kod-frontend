@@ -1,6 +1,6 @@
 import { selectorFamily } from "recoil";
-import { fetchChallengeState } from "src/library/api/auth";
-import { ChallengeState } from "src/main/recoil/auth/atom";
+import { fetchChallengeState } from "@/api/auth";
+import { ChallengeState } from "@/recoil/auth/atom";
 
 /**
  * Query challengeState

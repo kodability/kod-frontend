@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { fetchChallengeState } from "src/library/api/auth";
-import { challengeStateAtom } from "src/main/recoil/auth/atom";
+import { fetchChallengeState } from "@/api/auth";
+import { challengeStateAtom } from "@/recoil/auth/atom";
 
 const TRY_URL = "/challenge/try";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, RouteProps } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { challengeStateAtom } from "src/main/recoil/auth/atom";
+import { challengeStateAtom } from "@/recoil/auth/atom";
 
 export interface IProps {
   page: React.ComponentType<unknown>;

@@ -1,6 +1,6 @@
 import add from "date-fns/add";
-import { sleep } from "src/library/utils/time";
-import { ChallengeState } from "src/main/recoil/auth/atom";
+import { sleep } from "@/utils/time";
+import { ChallengeState } from "@/recoil/auth/atom";
 
 export const fetchChallengeState = async (
   cid: string

@@ -7,8 +7,9 @@ function getCracoPlugins() {
     {
       plugin: CracoAlias,
       options: {
-        source: "options",
-        baseUrl: "./",
+        source: "tsconfig",
+        baseUrl: "./src",
+        tsConfigPath: "./tsconfig.paths.json",
       },
     },
     {

@@ -1,6 +1,6 @@
 import React from "react";
-import CodeEditor from "src/library/common/components/CodeEditor";
-import MarkdownViewer from "src/library/common/components/MarkdownViewer";
+import CodeEditor from "@/components/CodeEditor";
+import MarkdownViewer from "@/components/MarkdownViewer";
 
 const ChallengeTryPage: React.FC = () => {
   const code = `const list: number[] = [1,2,3,4];
