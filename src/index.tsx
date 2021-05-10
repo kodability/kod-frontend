@@ -1,3 +1,4 @@
+import { MantineProvider } from "@mantine/core";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -13,7 +14,9 @@ renderer(
   <React.StrictMode>
     <RecoilRoot>
       <BrowserRouter>
-        <App />
+        <MantineProvider>
+          <App />
+        </MantineProvider>
       </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>,

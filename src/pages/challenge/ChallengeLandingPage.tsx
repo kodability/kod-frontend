@@ -1,5 +1,6 @@
 import { fetchChallengeState } from "@/api/auth";
 import { challengeStateAtom } from "@/recoil/auth/atom";
+import { Alert, Button, Code, LoadingOverlay } from "@mantine/core";
 import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -22,9 +23,8 @@ const ChallengeLandingPage: React.FC = () => {
 
   const history = useHistory();
 
-  console.log(challengeState);
   if (challengeState == null) {
-    return <div>Loading...</div>;
+    return <LoadingOverlay visible={true} />;
   }
 
   function onStart() {
@@ -33,17 +33,35 @@ const ChallengeLandingPage: React.FC = () => {
 
   switch (challengeState.state) {
     case "started":
-      return <button onClick={onStart}>continue</button>;
+      return (
+        <Button color="blue" onClick={onStart}>
+          continue
+        </Button>
+      );
     case "waiting":
-      return <button onClick={onStart}>Start</button>;
+      return (
+        <Button color="blue" onClick={onStart}>
+          Start
+        </Button>
+      );
     case "finished":
       return (
-        <div>finished at {challengeState.finishedAt.toLocaleString()}</div>
+        <Alert color="red" title="finished">
+          finished at {challengeState.finishedAt.toLocaleString()}
+        </Alert>
       );
     case "expired":
-      return <div>expired</div>;
+      return (
+        <Alert color="red" title="expired">
+          DueDate: {challengeState.dueDate.toLocaleString()}
+        </Alert>
+      );
     case "invalid":
-      return <div>invalid cid</div>;
+      return (
+        <Alert color="red" title="Invalid Request">
+          Requested with invalid id: <Code color="red">{cid}</Code>
+        </Alert>
+      );
   }
 };
 

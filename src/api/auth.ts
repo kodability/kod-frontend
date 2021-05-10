@@ -17,11 +17,13 @@ export const fetchChallengeState = async (
     case "waiting":
       return {
         state: "waiting",
-        validUntil: add(new Date(), { hours: 1 }),
+        cid,
+        dueDate: add(new Date(), { hours: 1 }),
       };
     case "started":
       return {
         state: "started",
+        cid,
         startedAt: add(new Date(), { hours: -1 }),
         endAt: add(new Date(), { hours: 1 }),
       };
@@ -34,6 +36,7 @@ export const fetchChallengeState = async (
     case "expired":
       return {
         state: "expired",
+        dueDate: add(new Date(), { hours: 1 }),
       };
     default:
       return { state: "invalid" };

@@ -11,13 +11,30 @@ interface Props {
 
 class CodeEditor extends React.PureComponent<Props> {
   private editor?: Monaco.editor.IStandaloneCodeEditor;
+  private monaco?: typeof Monaco;
 
   constructor(props: Props) {
     super(props);
   }
 
-  private handleEditorMount(e: Monaco.editor.IStandaloneCodeEditor) {
+  public shouldComponentUpdate(nextProps: Readonly<Props>): boolean {
+    if (this.props.language !== nextProps.language) {
+      if (this.editor && this.monaco) {
+        const model = this.editor.getModel();
+        if (model) {
+          this.monaco.editor.setModelLanguage(model, nextProps.language);
+        }
+      }
+    }
+    return true;
+  }
+
+  private handleEditorMount(
+    e: Monaco.editor.IStandaloneCodeEditor,
+    monaco: typeof Monaco
+  ) {
     this.editor = e;
+    this.monaco = monaco;
   }
 
   private handleEditorChange(code: string) {
@@ -42,7 +59,9 @@ class CodeEditor extends React.PureComponent<Props> {
             scrollBeyondLastLine: false,
           }}
           onChange={debounce(this.handleEditorChange, 1000)}
-          editorDidMount={(e) => this.handleEditorMount(e)}
+          editorDidMount={(editor, monaco) =>
+            this.handleEditorMount(editor, monaco)
+          }
         />
       </ReactResizeObserver>
     );

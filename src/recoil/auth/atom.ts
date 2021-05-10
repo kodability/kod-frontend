@@ -2,6 +2,7 @@ import { atom } from "recoil";
 
 export interface ChallengeStarted {
   state: "started";
+  cid: string;
   startedAt: Date;
   endAt: Date;
 }
@@ -14,11 +15,13 @@ export interface ChallengeFinished {
 
 export interface ChallengeWaiting {
   state: "waiting";
-  validUntil: Date;
+  cid: string;
+  dueDate: Date;
 }
 
 export interface ChallengeExpired {
   state: "expired";
+  dueDate: Date;
 }
 
 export interface ChallengeInvalid {

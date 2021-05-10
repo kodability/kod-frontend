@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "@mantine/core";
 
 const Title = styled.h2`
   font-size: 1.5em;
@@ -20,13 +21,37 @@ const LandingPage = () => {
   return (
     <div>
       <Title>{t("page.index")}</Title>
-      <button onClick={() => onChallenge("waiting")}>Challenge waiting</button>
-      <button onClick={() => onChallenge("started")}>Challenge started</button>
-      <button onClick={() => onChallenge("finished")}>
+      <Button
+        variant="outline"
+        color="indigo"
+        onClick={() => onChallenge("waiting")}
+      >
+        Challenge waiting
+      </Button>
+      <Button
+        variant="outline"
+        color="lime"
+        onClick={() => onChallenge("started")}
+      >
+        Challenge started
+      </Button>
+      <Button
+        variant="outline"
+        color="yellow"
+        onClick={() => onChallenge("finished")}
+      >
         Challenge finished
-      </button>
-      <button onClick={() => onChallenge("expired")}>Challenge expired</button>
-      <button onClick={() => onChallenge("1234")}>Challenge invalid</button>
+      </Button>
+      <Button
+        variant="outline"
+        color="red"
+        onClick={() => onChallenge("expired")}
+      >
+        Challenge expired
+      </Button>
+      <Button variant="outline" color="red" onClick={() => onChallenge("1234")}>
+        Challenge invalid
+      </Button>
     </div>
   );
 };
